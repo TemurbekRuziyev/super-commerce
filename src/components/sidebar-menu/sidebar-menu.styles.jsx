@@ -15,8 +15,8 @@ const LogoDesign = css`
   line-height: 1;
   transition: all 0.15s linear;
   & > * {
-    height: 5rem;
-    width: 5rem;
+    height: 4rem;
+    width: 4rem;
     fill: rgba(255, 255, 255, 0.5);
     display: block;
     margin: 0 auto;
@@ -24,7 +24,7 @@ const LogoDesign = css`
   }
 
   &:hover {
-    background-color: #ffd000;
+    background-color: #ffad48;
 
     & > * {
       fill: rgba(255, 255, 255, 0.8);
@@ -42,6 +42,7 @@ const LogoDesign = css`
 export const LinkContainer = styled(Link)`
   ${LogoDesign}
   border-radius: 8px;
+  position: relative;
 `;
 
 export const LogoContainer = styled(Link)`
@@ -66,4 +67,19 @@ export const SignOutBtn = styled.button`
   background-color: #485361;
   ${LogoDesign}
   border-radius: 8px;
+`;
+
+export const ShopNotification = styled.span`
+  position: absolute;
+  top: 0;
+  left: 65%;
+  background-color: green;
+  padding: .5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 50%;
 `;

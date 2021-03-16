@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const AppContainer = styled.div`
+  position: relative;
   width: 65%;
   margin: 1rem auto;
   display: grid;
@@ -8,6 +9,7 @@ export const AppContainer = styled.div`
   background-color: #67778b;
   border-radius: 5px;
   overflow: hidden;
+  box-shadow: 0 0 2px 4px rgba(255, 255, 255, 0.2);
 `;
 
 export const GlobalStyles = createGlobalStyle`

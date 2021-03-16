@@ -12,7 +12,8 @@ import {
   LinkContainer,
   LogoContainer,
   ImageLogo,
-  SignOutBtn
+  SignOutBtn,
+  ShopNotification
 } from './sidebar-menu.styles';
 
 const SidebarMenu = () => {
@@ -26,12 +27,13 @@ const SidebarMenu = () => {
       </LinkContainer>
       <LinkContainer to='/shop'>
         <LogoCart />
-      </LinkContainer>
-      <LinkContainer to='/user'>
-        <LogoUser />
+        <ShopNotification>20</ShopNotification>
       </LinkContainer>
       <LinkContainer to='/checkout'>
         <LogoCheckout />
+      </LinkContainer>
+      <LinkContainer to='/user'>
+        <LogoUser />
       </LinkContainer>
       <SignOutBtn  onClick={console.log("Clicked")}>
         <LogoOut />
