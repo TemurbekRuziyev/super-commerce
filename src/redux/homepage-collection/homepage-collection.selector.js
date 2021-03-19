@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 const selectCategory = state => state.category;
 
-export selectCategoryList = createSelector(
+export const selectCategoryList = createSelector(
     [selectCategory],
     category => category.category
 );
