@@ -14,22 +14,14 @@ export const HomePageHeading = styled.h2`
   color: transparent;
 `;
 
-export const RecommendedProducts = styled.div`
+export const FavoriteProducts = styled.div``;
 
-`;
-
-export const BestSellerProducts = styled.div`
-
-`;
-
-export const BuyScheduleContainer = styled.div`
-
-`;
+export const BuyScheduleContainer = styled.div``;
 
 export const HomePageText = styled.h2`
   font-size: 2rem;
 `;
 
-export const ScheduleContainer = styled.div`
-  
-`;
+export const ScheduleContainer = styled.div``;
+
+export const FavoriteProductsList = styled.div``;

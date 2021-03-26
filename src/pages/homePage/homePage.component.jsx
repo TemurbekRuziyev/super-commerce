@@ -2,46 +2,38 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { selectCategoryList } from '../../redux/homepage-collection/homepage-collection.selector';
-import { fetchCategoryStart } from '../../redux/homepage-collection/homepage-collection.actions';
-
+import HomePageCollection from '../../components/homepage-collection/homepage-collection.component';
+import { fetchProductsStart } from '../../redux/shop/shop.actions';
+import Schedule from '../../components/schedule/schedule.component';
 import {
   HomePageContainer,
   HomePageHeading,
-  RecommendedProducts,
-  BestSellerProducts,
+  FavoriteProducts,
   BuyScheduleContainer,
   ScheduleContainer,
-  HomePageText
+  HomePageText,
+  FavoriteProductsList,
 } from './homePage.styles';
-import Schedule from '../../components/schedule/schedule.component';
+import { selectProductIs } from '../../redux/shop/shop.selector';
 
-const HomePage = ({ fetchCategory, category }) => {
+const HomePage = ({ fetchProductsStart, isLoading }) => {
   useEffect(() => {
-    fetchCategory();
-  }, [fetchCategory]);
-
-  console.log(category);
+    fetchProductsStart();
+  }, [fetchProductsStart]);
 
   return (
     <HomePageContainer>
       <HomePageHeading>
         Good afternoon Temurbek, <br /> Welcome to Super-Commerce Website
       </HomePageHeading>
-      <RecommendedProducts>
-        <HomePageText>
-          Recommended Products
-        </HomePageText>
-      </RecommendedProducts>
-      <BestSellerProducts>
-        <HomePageText>
-          Top Saled Products
-        </HomePageText>
-      </BestSellerProducts>
+      <FavoriteProducts>
+        <HomePageText>Favorite Products</HomePageText>
+        <FavoriteProductsList>
+          <HomePageCollection isLoading={isLoading} />
+        </FavoriteProductsList>
+      </FavoriteProducts>
       <BuyScheduleContainer>
-        <HomePageText>
-          Let's create your schedule purchasing
-        </HomePageText>
+        <HomePageText>Let's create your schedule purchasing</HomePageText>
         <ScheduleContainer>
           <Schedule />
         </ScheduleContainer>
@@ -51,11 +43,11 @@ const HomePage = ({ fetchCategory, category }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  category: selectCategoryList,
+  isLoading: selectProductIs,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchCategory: () => dispatch(fetchCategoryStart()),
+  fetchProductsStart: () => dispatch(fetchProductsStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

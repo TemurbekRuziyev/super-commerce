@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { ReactComponent as LogoHome } from '../../assets/home-outline.svg';
 import { ReactComponent as LogoCart } from '../../assets/cart1.svg';
@@ -13,10 +15,11 @@ import {
   LogoContainer,
   ImageLogo,
   SignOutBtn,
-  ShopNotification
+  ShopNotification,
 } from './sidebar-menu.styles';
+import { selectCartCount } from '../../redux/cart/cart.selector';
 
-const SidebarMenu = () => {
+const SidebarMenu = ({ cartCount }) => {
   return (
     <SidebarMenuContainer>
       <LogoContainer to='/'>
@@ -27,7 +30,7 @@ const SidebarMenu = () => {
       </LinkContainer>
       <LinkContainer to='/shop'>
         <LogoCart />
-        <ShopNotification>20</ShopNotification>
+        <ShopNotification>{cartCount}</ShopNotification>
       </LinkContainer>
       <LinkContainer to='/checkout'>
         <LogoCheckout />
@@ -35,11 +38,15 @@ const SidebarMenu = () => {
       <LinkContainer to='/user'>
         <LogoUser />
       </LinkContainer>
-      <SignOutBtn  onClick={console.log("Clicked")}>
+      <SignOutBtn onClick={() => console.log('Sign Out')}>
         <LogoOut />
       </SignOutBtn>
     </SidebarMenuContainer>
   );
 };
 
-export default SidebarMenu;
+const mapStateToProps = createStructuredSelector({
+  cartCount: selectCartCount,
+});
+
+export default connect(mapStateToProps)(SidebarMenu);

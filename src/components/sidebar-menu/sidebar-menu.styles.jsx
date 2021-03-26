@@ -36,7 +36,6 @@ const LogoDesign = css`
     transform: translateY(2px);
     background-color: #f44;
   }
-
 `;
 
 export const LinkContainer = styled(Link)`
@@ -58,9 +57,7 @@ export const ImageLogo = styled.img`
   object-fit: cover;
 `;
 
-
 export const SignOutBtn = styled.button`
-  
   border: none;
   outline: none;
   cursor: pointer;
@@ -74,10 +71,12 @@ export const ShopNotification = styled.span`
   top: 0;
   left: 65%;
   background-color: green;
-  padding: .5rem;
+  padding: 0.5rem;
   height: 2.5rem;
   width: 2.5rem;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.5rem;
   font-weight: 600;
   color: white;

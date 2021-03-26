@@ -1,9 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectLikeList } from '../../redux/like/like.selector';
+import CollectionItem from '../collection-item/collection-item.component';
+import { HomePageCollectionContainer } from './homepage-collection.styles';
 
-const HomePageCollection = () => {
-    return (
-        
-    )
-}
+const HomePageCollection = ({ likes }) => {
+  return (
+    <HomePageCollectionContainer>
+      {likes.map(item => (
+        <CollectionItem item={item} key={item.id} />
+      ))}
+    </HomePageCollectionContainer>
+  );
+};
 
-export default HomePageCollection;
+const mapStateToProps = createStructuredSelector({
+  likes: selectLikeList,
+});
+
+export default connect(mapStateToProps)(HomePageCollection);

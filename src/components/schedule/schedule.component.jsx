@@ -36,6 +36,8 @@ const Schedule = ({ addItem, items }) => {
       });
     }
     setInputValue({ name: '', number: 0 });
+
+    document.getElementById('name').focus();
   };
 
   const handleKeyPress = event => {
@@ -48,6 +50,7 @@ const Schedule = ({ addItem, items }) => {
     <ScheduleContainer>
       <InputContainer>
         <ScheduleInput
+          id='name'
           type='text'
           placeholder='Enter your next buying product name'
           name='name'

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const CustomButtonContainer = styled.button`
-    max-width: 10rem;
-    padding: .7rem 1.5rem;
-    background-color: rgba(255, 255, 255, .8);
-    border: none;
+    max-width: auto;
+    padding: .5rem 1.5rem;
+    border: 2px solid #ffad48;
     outline: none;
     font-size: 1.6rem;
-    border-radius: 3px;
+    border-radius: 5px;
+    cursor: pointer;
 `;

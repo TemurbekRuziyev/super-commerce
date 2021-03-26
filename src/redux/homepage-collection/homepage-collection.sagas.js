@@ -9,7 +9,7 @@ import HomePageTypes from './homepage-collection.types';
 export function* fetchCategory() {
   try {
     const category = yield fetch(
-      'https://fakestoreapi.com/products/categories'
+      'https://fakestoreapi.herokuapp.com/products'
     );
     const data = yield category.json();
 
