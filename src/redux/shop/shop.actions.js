@@ -13,3 +13,8 @@ export const fetchProductsFailure = error => ({
   type: ShopActionTypes.FETCH_PRODUCTS_FAILURE,
   payload: error,
 });
+
+export const getLikeList = likes => ({
+  type: ShopActionTypes.GET_LIKE_LIST,
+  payload: likes
+});

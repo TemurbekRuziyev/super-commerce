@@ -1,9 +1,11 @@
 import ShopActionTypes from './shop.types';
+import { productWithLikes } from './shop.utils';
 
 const INITIAL_STATE = {
   products: [],
   isFetching: true,
   errorMessage: null,
+  likes: [],
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -13,10 +15,16 @@ const shopReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isFetching: true,
       };
+    case ShopActionTypes.GET_LIKE_LIST:
+      return {
+        ...state,
+        likes: action.payload,
+      };
     case ShopActionTypes.FETCH_PRODUCTS_SUCCESS:
       return {
         ...state,
-        products: action.payload,
+        products: productWithLikes(action.payload, state.likes),
+        // products: action.payload,
         isFetching: false,
       };
     case ShopActionTypes.FETCH_PRODUCTS_FAILURE:
