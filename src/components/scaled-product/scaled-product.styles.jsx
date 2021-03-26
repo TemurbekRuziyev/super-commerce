@@ -13,7 +13,7 @@ export const ScaledProductContainer = styled.div`
   justify-content: center;
   z-index: 5;
 
-  transition: all 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
 `;
 
 export const ProductContainer = styled.div`

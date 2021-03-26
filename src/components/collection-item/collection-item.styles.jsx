@@ -57,6 +57,7 @@ export const CustomButtonContainer = styled.div`
   margin-top: 1rem;
   justify-content: space-between;
   font-size: 1.5rem;
+  padding: 0 .3rem;
 `;
 
 export const CollectionInfoContainer = styled.div`

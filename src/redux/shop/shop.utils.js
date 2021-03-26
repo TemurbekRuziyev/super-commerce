@@ -1,5 +1,3 @@
-//! NOT WORKING THIS FUNCTION
-
 export const productWithLikes = (products, likes) => {
   let newProducts = [];
   products.forEach(element => {

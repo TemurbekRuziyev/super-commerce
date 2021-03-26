@@ -13,7 +13,7 @@ import {
   ProductPrice,
   ExitIcon,
   ProductTitle,
-  ProductImageContainer
+  ProductImageContainer,
 } from './scaled-product.styles';
 
 const ScaledProduct = ({ scaledProduct, zoomOutProduct }) => {
