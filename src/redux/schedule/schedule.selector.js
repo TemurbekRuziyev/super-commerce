@@ -6,3 +6,8 @@ export const selectScheduleList = createSelector(
   [selectSchedule],
   scheduleList => scheduleList.items
 );
+
+export const selectScheduleItem = createSelector(
+  [selectSchedule],
+  schedule => schedule.item
+);
