@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { addItemToSchedule } from '../../redux/schedule/schedule.actions';
 import ScheduleElement from '../scheduleElement/scheduleElement.component';
-import { selectScheduleList } from '../../redux/schedule/schedule.selector';
+import {
+  selectScheduleItem,
+  selectScheduleList,
+} from '../../redux/schedule/schedule.selector';
 
 import {
   ScheduleContainer,
@@ -14,11 +17,19 @@ import {
   ScheduleElements,
 } from './schedule.styles';
 
-const Schedule = ({ addItem, items }) => {
+const Schedule = ({ addItem, items, item }) => {
   const [inputValue, setInputValue] = useState({
     name: '',
     number: 1,
   });
+
+  useEffect(() => {
+    if (item) {
+      setInputValue({ name: item.name, number: item.number });
+    } else {
+      setInputValue({ name: '', number: '' });
+    }
+  }, [item]);
 
   const { name, number } = inputValue;
 
@@ -35,6 +46,7 @@ const Schedule = ({ addItem, items }) => {
         id: items.length ? items[items.length - 1].id + 1 : 0,
       });
     }
+
     setInputValue({ name: '', number: 0 });
 
     document.getElementById('name').focus();
@@ -42,8 +54,6 @@ const Schedule = ({ addItem, items }) => {
 
   const handleKeyPress = event => {
     if (event.keyCode === 13 || event.which === 13) handleSubmit();
-
-    console.log('Clicked');
   };
 
   return (
@@ -77,6 +87,7 @@ const Schedule = ({ addItem, items }) => {
 
 const mapStateToProps = createStructuredSelector({
   items: selectScheduleList,
+  item: selectScheduleItem,
 });
 
 const mapDispatchToProps = dispatch => ({
