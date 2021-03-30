@@ -1,6 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { ReactComponent as CancelIcon } from '../../assets/cancel-circle.svg';
+import { ReactComponent as EditIcon } from '../../assets/pencil.svg';
+
+const IconStyles = css`
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+  fill: rgba(235, 235, 235, 0.822);
+`;
 
 export const ScheduleItemContainer = styled.div`
   width: 60%;
@@ -14,8 +23,14 @@ export const ScheduleItemContainer = styled.div`
   &:first-child {
     margin-top: 2rem;
   }
-  &:hover .btn-clear {
+  .btn-edit {
+    margin-right: 1.5rem;
+  }
+  .btn-clear:hover {
     fill: #ffad48;
+  }
+  .btn-edit:hover {
+    fill: #28cf28;
   }
 `;
 
@@ -29,10 +44,13 @@ export const ScheduleItemAmount = styled.h4`
   flex: 0 1 10%;
 `;
 
+export const BtnContainer = styled.div`
+  display: flex;
+`;
+export const EditIconStyle = styled(EditIcon)`
+  ${IconStyles}
+`;
+
 export const CancelIconStyle = styled(CancelIcon)`
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in;
-  fill: rgba(0, 255, 0, 0.4);
+  ${IconStyles}
 `;

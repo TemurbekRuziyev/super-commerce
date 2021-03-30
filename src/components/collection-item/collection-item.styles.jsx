@@ -11,7 +11,7 @@ const Center = css`
 export const CollectionItemContainer = styled.div`
   position: relative;
   font-family: 'Abel', 'Rubik', sans-serif;
-  margin: 1rem;
+  margin: .6rem;
   border-radius: 5px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.2);

@@ -7,6 +7,7 @@ export const HomePageContainer = styled.div`
 `;
 
 export const HomePageHeading = styled.h2`
+  font-family: 'Rubik', sans-serif;
   font-size: 2.5rem;
   background-clip: text;
   -webkit-background-clip: text;
@@ -16,9 +17,12 @@ export const HomePageHeading = styled.h2`
 
 export const FavoriteProducts = styled.div``;
 
-export const BuyScheduleContainer = styled.div``;
+export const BuyScheduleContainer = styled.div`
+  margin-top: 4rem;
+`;
 
 export const HomePageText = styled.h2`
+  font-family: 'Rubik', sans-serif;
   font-size: 2rem;
 `;
 

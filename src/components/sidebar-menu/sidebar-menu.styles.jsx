@@ -7,7 +7,10 @@ export const SidebarMenuContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 5;
 `;
+
 
 const LogoDesign = css`
   margin: 1rem auto;
@@ -33,7 +36,7 @@ const LogoDesign = css`
 
   &:focus,
   &:active {
-    transform: translateY(2px);
+    transform: translateY(2px) rotate(0);
     background-color: #f44;
   }
 `;
@@ -64,6 +67,17 @@ export const SignOutBtn = styled.button`
   background-color: #485361;
   ${LogoDesign}
   border-radius: 8px;
+
+  &.settings-btn {
+    background-color: #485361;
+    transition: all 0.5s;
+    position: relative;
+    width: 100%;
+  }
+
+  &.settings-btn > .settings-logo {
+    transform: ${props => (props.isHidden ? 'rotate(0)' : 'rotate(90deg)')};
+  }
 `;
 
 export const ShopNotification = styled.span`
@@ -81,4 +95,15 @@ export const ShopNotification = styled.span`
   font-weight: 600;
   color: white;
   border-radius: 50%;
+`;
+
+export const SettingMenu = styled.div`
+  position: absolute;
+  transition: all 0.5s;
+  right: left;
+  top: 47.3rem;
+  width: max-content;
+  transform: ${props =>
+    props.isHidden ? 'translateX(-55%)' : 'translate(65%)'};
+  z-index: -1;
 `;

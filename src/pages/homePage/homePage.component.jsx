@@ -26,18 +26,18 @@ const HomePage = ({ fetchProductsStart, isLoading }) => {
       <HomePageHeading>
         Good afternoon Temurbek, <br /> Welcome to Super-Commerce Website
       </HomePageHeading>
-      <FavoriteProducts>
-        <HomePageText>Favorite Products</HomePageText>
-        <FavoriteProductsList>
-          <HomePageCollection isLoading={isLoading} />
-        </FavoriteProductsList>
-      </FavoriteProducts>
       <BuyScheduleContainer>
         <HomePageText>Let's create your schedule purchasing</HomePageText>
         <ScheduleContainer>
           <Schedule />
         </ScheduleContainer>
       </BuyScheduleContainer>
+      <FavoriteProducts>
+        <HomePageText>Favorite Products</HomePageText>
+        <FavoriteProductsList>
+          <HomePageCollection isLoading={isLoading} />
+        </FavoriteProductsList>
+      </FavoriteProducts>
     </HomePageContainer>
   );
 };

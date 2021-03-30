@@ -7,7 +7,7 @@ import { HomePageCollectionContainer } from './homepage-collection.styles';
 
 const HomePageCollection = ({ likes }) => {
   return (
-    <HomePageCollectionContainer>
+    <HomePageCollectionContainer likes={likes}>
       {likes.map(item => (
         <CollectionItem item={item} key={item.id} />
       ))}
