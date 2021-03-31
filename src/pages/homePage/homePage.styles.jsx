@@ -14,7 +14,9 @@ export const HomePageHeading = styled.h2`
   color: transparent;
 `;
 
-export const FavoriteProducts = styled.div``;
+export const FavoriteProducts = styled.div`
+  margin-top: 2rem;
+`;
 
 export const BuyScheduleContainer = styled.div`
   margin-top: 4rem;
