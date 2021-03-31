@@ -21,11 +21,13 @@ import {
   SettingMenu,
 } from './sidebar-menu.styles';
 import { selectCartCount } from '../../redux/cart/cart.selector';
+import { selectColorStyle } from '../../redux/global-styles/global-styles.selector';
 
-const SidebarMenu = ({ cartCount }) => {
+const SidebarMenu = ({ cartCount, bgColor }) => {
   const [isHidden, setHidden] = useState(true);
+
   return (
-    <SidebarMenuContainer>
+    <SidebarMenuContainer bgColor={bgColor}>
       <LogoContainer to='/'>
         <ImageLogo src={Logo} alt='Logo' />
       </LogoContainer>
@@ -42,17 +44,18 @@ const SidebarMenu = ({ cartCount }) => {
       <LinkContainer to='/user'>
         <LogoUser />
       </LinkContainer>
-      <SignOutBtn onClick={() => console.log('Sign Out')}>
+      <SignOutBtn bgColor={bgColor} onClick={() => console.log('Sign Out')}>
         <LogoOut />
       </SignOutBtn>
       <SignOutBtn
+        bgColor={bgColor}
         className='settings-btn'
         isHidden={isHidden}
         onClick={() => (isHidden ? setHidden(false) : setHidden(true))}
       >
         <LogoSettings className='settings-logo' isHidden={isHidden} />
       </SignOutBtn>
-      <SettingMenu isHidden={isHidden}>
+      <SettingMenu isHidden={isHidden} bgColor={bgColor}>
         <SettingsMenu />
       </SettingMenu>
     </SidebarMenuContainer>
@@ -61,6 +64,7 @@ const SidebarMenu = ({ cartCount }) => {
 
 const mapStateToProps = createStructuredSelector({
   cartCount: selectCartCount,
+  bgColor: selectColorStyle,
 });
 
 export default connect(mapStateToProps)(SidebarMenu);

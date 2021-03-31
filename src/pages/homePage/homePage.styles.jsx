@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const HomePageContainer = styled.div`
   padding: 1rem;
   position: relative;
-  grid-column: 2 / 3;
 `;
 
 export const HomePageHeading = styled.h2`
@@ -11,7 +10,7 @@ export const HomePageHeading = styled.h2`
   font-size: 2.5rem;
   background-clip: text;
   -webkit-background-clip: text;
-  background-image: linear-gradient(to right, yellow, red);
+  background-color: ${props => props.bgColor[3]};
   color: transparent;
 `;
 

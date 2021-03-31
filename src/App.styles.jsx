@@ -6,10 +6,17 @@ export const AppContainer = styled.div`
   margin: 1rem auto;
   display: grid;
   grid-template-columns: 5.5vw 1fr;
-  background-color: #67778b;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 0 2px 4px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 2px 4px rgba(255, 255, 255, 0.192);
+
+
+`;
+
+export const ContentContainer = styled.div`
+  grid-column: 2 / 3;
+  background-color: ${props => props.bgColor[0]};
+  color: ${props => props.bgColor[2]};
 `;
 
 export const GlobalStyles = createGlobalStyle`

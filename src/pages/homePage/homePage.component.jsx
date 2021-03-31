@@ -15,15 +15,16 @@ import {
   FavoriteProductsList,
 } from './homePage.styles';
 import { selectProductIs } from '../../redux/shop/shop.selector';
+import { selectColorStyle } from '../../redux/global-styles/global-styles.selector';
 
-const HomePage = ({ fetchProductsStart, isLoading }) => {
+const HomePage = ({ fetchProductsStart, isLoading, bgColor }) => {
   useEffect(() => {
     fetchProductsStart();
   }, [fetchProductsStart]);
 
   return (
     <HomePageContainer>
-      <HomePageHeading>
+      <HomePageHeading bgColor={bgColor}>
         Good afternoon Temurbek, <br /> Welcome to Super-Commerce Website
       </HomePageHeading>
       <BuyScheduleContainer>
@@ -44,6 +45,7 @@ const HomePage = ({ fetchProductsStart, isLoading }) => {
 
 const mapStateToProps = createStructuredSelector({
   isLoading: selectProductIs,
+  bgColor: selectColorStyle,
 });
 
 const mapDispatchToProps = dispatch => ({

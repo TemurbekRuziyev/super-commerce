@@ -8,6 +8,7 @@ import shopReducer from './shop/shop.reducer';
 import scaledReducer from './scaled-product/scaled-product.reducer';
 import likeReducer from './like/like.reducer';
 import cartReducer from './cart/cart.reducer';
+import styleReducer from './global-styles/global-styles.reducer';
 
 const persistConfig = {
   key: 'root',
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   scaled: scaledReducer,
   like: likeReducer,
   cart: cartReducer,
+  styles: styleReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

@@ -1,30 +1,31 @@
 import styled, {css} from 'styled-components';
 
 const sameStyle = css`
-    width: 4rem;
-    height: 4rem;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: 50%;
+    cursor: pointer;
+    margin: .2rem .5rem;
 `;
 
 export const SettingsContainer = styled.div`
     display: flex;
-    position:relative;
     border-radius: 5px;
     background-color: #ccc;
-
+    z-index: -1;
 `;
 
 export const SettingsOne = styled.div`
     ${sameStyle}
-    background-color: black;
+    background-color: #000000;
 `;
 
 export const SettingsTwo = styled.div`
     ${sameStyle}
-    background-color: white;
+    background-color: #fdc403;
 `;
 
 export const SettingsThree = styled.div`
     ${sameStyle}
-    background-color: green;
+    background-color: #8062ff;
 `;
