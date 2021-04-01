@@ -4,7 +4,8 @@ import { fetchProductsSuccess, fetchProductsFailure } from './shop.actions';
 
 export function* fetchProducts() {
   try {
-    const data = yield fetch('https://fakestoreapi.herokuapp.com/products');
+    // const data = yield fetch('https://fakestoreapi.herokuapp.com/products'); Sometimes this will work because of fikestoreapi mistakes
+    const data = yield fetch('https://fakestoreapi.com/products'); //Sometimes this will work because of fikestoreapi mistakes
     const json = yield data.json();
 
     yield put(fetchProductsSuccess(json));

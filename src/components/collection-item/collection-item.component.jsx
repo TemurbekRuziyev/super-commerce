@@ -40,7 +40,8 @@ const CollectionItem = ({
       </CollectionItemLikeContainer>
       <ItemImageContainer>
         <ItemImage
-          src={image.replace('fakestoreapi', 'fakestoreapi.herokuapp')}
+          // src={image.replace('fakestoreapi', 'fakestoreapi.herokuapp')} //Somethimes this will work because of fakestoreapi doesn't work
+          src={image}
           alt={description}
         />
       </ItemImageContainer>
