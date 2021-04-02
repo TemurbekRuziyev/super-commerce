@@ -18,10 +18,17 @@ import {
 } from './schedule.styles';
 
 const Schedule = ({ addItem, items, item }) => {
+  //States
   const [inputValue, setInputValue] = useState({
     name: '',
     number: 1,
   });
+  const [inputRef1, setInputRef1] = useState(React.createRef());
+  const [inputRef2, setInputRef2] = useState(React.createRef());
+  //Lifecycle methods
+  useEffect(() => {
+    inputRef1.current.focus();
+  }, []);
 
   useEffect(() => {
     if (item) {
@@ -33,6 +40,7 @@ const Schedule = ({ addItem, items, item }) => {
 
   const { name, number } = inputValue;
 
+  //Methods
   const handleChange = event => {
     const { value, name } = event.target;
     setInputValue({ ...inputValue, [name]: value });
@@ -46,14 +54,19 @@ const Schedule = ({ addItem, items, item }) => {
         id: items.length ? items[items.length - 1].id + 1 : 0,
       });
     }
-
     setInputValue({ name: '', number: 0 });
-
-    document.getElementById('name').focus();
+    
+    inputRef1.current.focus();
   };
 
   const handleKeyPress = event => {
     if (event.keyCode === 13 || event.which === 13) handleSubmit();
+  };
+
+  const handleEnter = event => {
+    if (event.keyCode === 13 || event.which === 13) {
+      inputRef2.current.focus();
+    }
   };
 
   return (
@@ -65,7 +78,9 @@ const Schedule = ({ addItem, items, item }) => {
           placeholder='Enter your next buying product name'
           name='name'
           value={name}
+          ref={inputRef1}
           onChange={handleChange}
+          onKeyPress={handleEnter}
         />
         <ScheduleInput
           type='number'
@@ -73,6 +88,7 @@ const Schedule = ({ addItem, items, item }) => {
           name='number'
           onChange={handleChange}
           onKeyPress={handleKeyPress}
+          ref={inputRef2}
         />
         <InputBtn onClick={handleSubmit} />
       </InputContainer>
