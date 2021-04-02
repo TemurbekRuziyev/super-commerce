@@ -55,7 +55,7 @@ const Schedule = ({ addItem, items, item }) => {
       });
     }
     setInputValue({ name: '', number: 0 });
-    
+
     inputRef1.current.focus();
   };
 
@@ -66,6 +66,7 @@ const Schedule = ({ addItem, items, item }) => {
   const handleEnter = event => {
     if (event.keyCode === 13 || event.which === 13) {
       inputRef2.current.focus();
+      inputRef2.current.value = '';
     }
   };
 
